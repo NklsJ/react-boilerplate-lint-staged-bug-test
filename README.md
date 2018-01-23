@@ -36,3 +36,5 @@ This issue seems to fix itself if you modify `.lintstagedrc` to this
 ````
 
 So if you add `--recursive` to this line `"stylefmt --recursive",`
+
+More discussion on the topic here https://github.com/okonet/lint-staged/issues/164
