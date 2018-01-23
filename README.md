@@ -1,11 +1,11 @@
-# Test lint staged bug
+# Test lint staged / stylefmt bug
 
 Created from https://github.com/digiaonline/react-boilerplate
 
 ## What's wrong?
 
-Seems like lint-staged doesn't work correctly if you add 2 css files into commit, if both or one of those files need linting.
-Lint-staged stages both files with the content of just one file overwriting the changes.
+Seems like lint-staged or stylefmt doesn't work correctly if you add 2 css files into commit, and if one of those files has lint errors.
+Lint-staged stages both files with the content of just one file, overwriting the changes.
 
 ## Steps to reproduce the bug
 
