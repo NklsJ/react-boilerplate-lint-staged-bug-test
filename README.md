@@ -4,8 +4,8 @@ Created from https://github.com/digiaonline/react-boilerplate
 
 ## What's wrong?
 
-Seems like lint-staged doesn't work correctly if you add 2 css files into commit, if both those files need linting.
-Lint-staged stages both files with the content of just one file.
+Seems like lint-staged doesn't work correctly if you add 2 css files into commit, if both or one of those files need linting.
+Lint-staged stages both files with the content of just one file overwriting the changes.
 
 ## Steps to reproduce the bug
 
@@ -16,3 +16,23 @@ Lint-staged stages both files with the content of just one file.
 - Type `git add .`
 - Type `yarn precommit`
 - Open both css files. One of the files should have been overwritten with the content from the other file.
+
+
+## Steps to fix the bug
+
+This issue seems to fix itself if you modify `.lintstagedrc` to this
+
+````
+{
+  "*.js": [
+    "prettier-eslint --write \"src/**/*.js\"",
+    "git add"
+  ],
+  "*.css": [
+    "stylefmt --recursive",
+    "git add"
+  ]
+}
+````
+
+So if you add `--recursive` to this line `"stylefmt --recursive",`
